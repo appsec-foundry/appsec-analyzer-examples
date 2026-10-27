@@ -1,0 +1,24 @@
+2026-10-27T16:22:17Z  [f493ff27]  INFO   BASH_OK             cmd=ls -la && git log --oneline | head -5; grep -c "0.6.0b6" *.md *.yaml *.svg | gre…  dur=1s
+2026-10-27T16:22:23Z  [f493ff27]  INFO   BASH_OK             cmd=grep -n "0\.6\.0b6" *.md *.yaml | cut -c1-260; echo ---; grep -c "0\.6\.0" *.svg…  dur=1s
+2026-10-27T16:22:28Z  [f493ff27]  INFO   BASH_OK             cmd=for m in quick standard thorough; do echo "=== $m"; sed -n 1,25p security-assess…  dur=1s
+2026-10-27T16:22:37Z  [f493ff27]  INFO   BASH_OK             cmd=python3 -I - <<'EOF' import yaml, collections for m in ("quick","standard","thor…  dur=4s
+2026-10-27T16:22:46Z  [f493ff27]  INFO   BASH_OK             cmd=for f in security-assessment-juice-shop-*-v0.6.0b6*; do mv -- "$f" "${f//v0.6.0b…  dur=2s
+2026-10-27T16:23:01Z  [f493ff27]  INFO   FILE_WRITE          /home/mrohr/appsec-analyzer-examples/README.md  (1,368 chars)  dur=0s
+2026-10-27T16:23:08Z  [f493ff27]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-27T16:23:08Z  [f493ff27]  INFO   SESSION_STOP        stop_reason=end_turn  in=14  out=4,146  cache_write=107,968  cache_read=369,576  cost=$0.5780
+2026-10-27T16:23:08Z  [f493ff27]  INFO   ASSESSMENT_SUMMARY  mode=full  duration=0m 51s  plugin_version=0.6.0-beta.4  analysis_version=5  threats=0 (Critical=0, High=0, Medium=0, Low=0)
+2026-10-27T16:23:08Z  [f493ff27]  INFO   ASSESSMENT_TOKENS   throughput=481,704  input=477,558  output=4,146  (input split: fresh=14 cache_write=107,968 cache_read=369,576)  cost=$0.5780  billing=subscription
+2026-10-27T16:23:08Z  [f493ff27]  INFO   ASSESSMENT_MODELS   agents: none detected
+2026-10-27T16:23:08Z  [f493ff27]  INFO   ASSESSMENT_FILES    count=1  files: /home/mrohr/appsec-analyzer-examples/README.md
+2026-10-27T16:23:42Z  [f493ff27]  WARN   BASH_WARN           cmd=echo "old refs:"; grep -rl "0\.6\.0b6" --exclude-dir=.git --exclude-dir=docs --e…  resp=ugrep: warning: cannot read .zprofile: Permission denied  dur=1s
+2026-10-27T16:23:47Z  [f493ff27]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-27T16:23:47Z  [f493ff27]  INFO   SESSION_STOP        stop_reason=end_turn  in=20  out=5,032  cache_write=109,428  cache_read=515,511  cost=$0.6405
+2026-10-27T16:25:19Z  [f493ff27]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-27T16:25:19Z  [f493ff27]  INFO   SESSION_STOP        stop_reason=end_turn  in=20  out=5,032  cache_write=109,428  cache_read=515,511  cost=$0.6405
+2026-10-27T16:29:33Z  [c9691997]  INFO   BASH_OK             cmd=git ls-files && ls -R docs | head -50 && cat README.md  dur=1s
+2026-10-27T16:29:57Z  [c9691997]  INFO   FILE_WRITE          /home/mrohr/appsec-analyzer-examples/README.md  (2,008 chars)  dur=0s
+2026-10-27T16:30:08Z  [c9691997]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-27T16:30:08Z  [c9691997]  INFO   SESSION_STOP        stop_reason=end_turn  in=6  out=2,798  cache_write=39,596  cache_read=155,332  cost=$0.2371
+2026-10-27T16:30:13Z  [c9691997]  INFO   BASH_OK             cmd=git add README.md && git commit -q -m "Rewrite README: Juice Shop paragraph, per…  dur=1s
+2026-10-27T16:30:15Z  [c9691997]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-27T16:30:15Z  [c9691997]  INFO   SESSION_STOP        stop_reason=end_turn  in=12  out=3,023  cache_write=40,611  cache_read=289,718  cost=$0.2846
