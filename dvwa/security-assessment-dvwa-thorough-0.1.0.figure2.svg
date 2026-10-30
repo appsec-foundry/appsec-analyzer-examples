@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1330" height="661" viewBox="0 0 1330 661" font-family="Helvetica, Arial, sans-serif" data-figure2-version="2" data-glyphs="1 2 3 5 2 4 6" role="img" aria-labelledby="f2-title"><title id="f2-title">Actors, attack routes, underlying weaknesses and impact</title><metadata id="figure2-data">{&quot;routes&quot;: [{&quot;actor&quot;: &quot;Anonymous Internet Attacker&quot;, &quot;actor_note&quot;: &quot;no account or prior foothold&quot;, &quot;actor_slug&quot;: &quot;internet-anon&quot;, &quot;business_harm&quot;: &quot;Service disruption or compromise of application data\nDisclosure of customer information&quot;, &quot;component&quot;: &quot;C-03 · DVWA API service&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-005&quot;, &quot;finding_ids&quot;: [&quot;F-005&quot;, &quot;F-012&quot;, &quot;F-013&quot;, &quot;F-014&quot;, &quot;F-015&quot;, &quot;F-016&quot;, &quot;F-017&quot;, &quot;F-018&quot;, &quot;F-019&quot;, &quot;F-020&quot;], &quot;number&quot;: 1, &quot;prerequisite&quot;: &quot;No account required&quot;, &quot;risk&quot;: &quot;Critical&quot;, &quot;route&quot;: &quot;I send POST /vulnerabilities/api/v2/health/connectivity with JSON body {\&quot;target\&quot;:\&quot;x; id\&quot;}, without any token.&quot;, &quot;title&quot;: &quot;SQL and shell injection reads data, runs commands&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Application data builds operating-system commands (W-001)&quot;, &quot;weakness_ids&quot;: [&quot;W-001&quot;]}, {&quot;actor&quot;: &quot;Anonymous Internet Attacker&quot;, &quot;actor_note&quot;: &quot;no account or prior foothold&quot;, &quot;actor_slug&quot;: &quot;internet-anon&quot;, &quot;business_harm&quot;: &quot;Unauthorized administration and changes to protected business data&quot;, &quot;component&quot;: &quot;C-03 · DVWA API service&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-006&quot;, &quot;finding_ids&quot;: [&quot;F-002&quot;, &quot;F-003&quot;, &quot;F-006&quot;, &quot;F-031&quot;, &quot;F-037&quot;, &quot;F-039&quot;, &quot;F-047&quot;, &quot;F-049&quot;, &quot;F-064&quot;, &quot;F-065&quot;, &quot;F-066&quot;, &quot;F-074&quot;], &quot;number&quot;: 2, &quot;prerequisite&quot;: &quot;No account required&quot;, &quot;risk&quot;: &quot;High&quot;, &quot;route&quot;: &quot;Session tokens are JSON encrypted with AES-128-ECB under a hardcoded key and have no MAC. An attacker splices 16-byte blocks from captured tokens, for example Sweep&#x27;s user field with Sooty&#x27;s admin level and a valid expiry, and submits the forged token to be accepted as admin Sweep.&quot;, &quot;title&quot;: &quot;Bypass or Forge Authentication&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Security-sensitive data uses weak cryptographic primitives (W-005)&quot;, &quot;weakness_ids&quot;: [&quot;W-005&quot;]}, {&quot;actor&quot;: &quot;Anonymous Internet Attacker&quot;, &quot;actor_note&quot;: &quot;no account or prior foothold&quot;, &quot;actor_slug&quot;: &quot;internet-anon&quot;, &quot;business_harm&quot;: &quot;Unauthorized administration and changes to protected business data&quot;, &quot;component&quot;: &quot;C-03 · DVWA API service&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-073&quot;, &quot;finding_ids&quot;: [&quot;F-073&quot;, &quot;F-075&quot;, &quot;F-076&quot;, &quot;F-097&quot;], &quot;number&quot;: 3, &quot;prerequisite&quot;: &quot;No account required&quot;, &quot;risk&quot;: &quot;Medium&quot;, &quot;route&quot;: &quot;An authenticated user sets the user_id cookie to another user&#x27;s ID and requests that ID; the server compares the request ID with the cookie and returns the other user&#x27;s profile.&quot;, &quot;title&quot;: &quot;Bypass Authorization to Gain Access&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;No weakness linked in the register&quot;, &quot;weakness_ids&quot;: []}, {&quot;actor&quot;: &quot;Anonymous Internet Attacker&quot;, &quot;actor_note&quot;: &quot;no account or prior foothold&quot;, &quot;actor_slug&quot;: &quot;internet-anon&quot;, &quot;business_harm&quot;: &quot;Service disruption or compromise of application data\nDisclosure of customer information\nUnauthorized administration and changes to protected business data&quot;, &quot;component&quot;: &quot;C-03 · DVWA API service&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-072&quot;, &quot;finding_ids&quot;: [&quot;F-072&quot;], &quot;number&quot;: 5, &quot;prerequisite&quot;: &quot;No account required&quot;, &quot;risk&quot;: &quot;Medium&quot;, &quot;route&quot;: &quot;At vulnerabilities/view_help.php:20, view_help.php builds a path from the unsanitised id and locale parameters, reads vulnerabilities/{id}/help/help.php (or help.{locale}.php), and evals the contents as PHP. An authenticated user sets id to a traversal such as ../../some/dir. Any reachable help.php or locale-matching file that the attacker can place or select then runs as server-side code. The page requires a DVWA login (line 6), but there is no allowlist on id or locale and no path containment.&quot;, &quot;title&quot;: &quot;Execute Attacker-Controlled Server Code&quot;, &quot;unproven&quot;: true, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Application data crosses into executable code (W-006)&quot;, &quot;weakness_ids&quot;: [&quot;W-006&quot;]}, {&quot;actor&quot;: &quot;Authenticated Internet Attacker&quot;, &quot;actor_note&quot;: &quot;1 role; access details in Identified Actors&quot;, &quot;actor_slug&quot;: &quot;internet-user&quot;, &quot;business_harm&quot;: &quot;Unauthorized administration and changes to protected business data&quot;, &quot;component&quot;: &quot;C-04 · DVWA web application&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-008&quot;, &quot;finding_ids&quot;: [&quot;F-007&quot;, &quot;F-008&quot;], &quot;number&quot;: 2, &quot;prerequisite&quot;: &quot;Regular account required; Source-repository access required&quot;, &quot;risk&quot;: &quot;High&quot;, &quot;route&quot;: &quot;I open /login.php and read the anti-CSRF token from the form.&quot;, &quot;title&quot;: &quot;Bypass or Forge Authentication&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Secrets are committed to source instead of a managed store (W-004)&quot;, &quot;weakness_ids&quot;: [&quot;W-004&quot;]}, {&quot;actor&quot;: &quot;Authenticated Internet Attacker&quot;, &quot;actor_note&quot;: &quot;1 role; access details in Identified Actors&quot;, &quot;actor_slug&quot;: &quot;internet-user&quot;, &quot;business_harm&quot;: &quot;Disclosure of customer information&quot;, &quot;component&quot;: &quot;C-03 · DVWA API service&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-029&quot;, &quot;finding_ids&quot;: [&quot;F-029&quot;, &quot;F-030&quot;, &quot;F-042&quot;, &quot;F-043&quot;, &quot;F-044&quot;, &quot;F-063&quot;], &quot;number&quot;: 4, &quot;prerequisite&quot;: &quot;Regular account required&quot;, &quot;risk&quot;: &quot;High&quot;, &quot;route&quot;: &quot;At vulnerabilities/view_source.php:63 the unvalidated id and security GET values are joined into a file_get_contents path ending in .php, and the file is echoed with highlight_string. Any logged-in DVWA user passes dvwaPageStartup(array(&#x27;authenticated&#x27;)). The user then requests view_source.php?id=sqli or id=fi with security=../../../config/config.inc to escape the source directory. This discloses any .php file the web server can read, such as config.inc.php with its database credentials. The switch on id only sets a label, and its default branch accepts any value.&quot;, &quot;title&quot;: &quot;Access Exposed Data and Secrets&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Input handling lacks enforced boundary validation (W-002)&quot;, &quot;weakness_ids&quot;: [&quot;W-002&quot;]}, {&quot;actor&quot;: &quot;Supply-Chain / Build Attacker&quot;, &quot;actor_note&quot;: &quot;1 role; access details in Identified Actors&quot;, &quot;actor_slug&quot;: &quot;build-time&quot;, &quot;business_harm&quot;: &quot;Service disruption or compromise of application data&quot;, &quot;component&quot;: &quot;C-02 · CI/CD Pipeline&quot;, &quot;consequence&quot;: &quot;Technical consequence not established.&quot;, &quot;finding_id&quot;: &quot;F-028&quot;, &quot;finding_ids&quot;: [&quot;F-027&quot;, &quot;F-028&quot;, &quot;F-051&quot;, &quot;F-052&quot;, &quot;F-069&quot;, &quot;F-070&quot;, &quot;F-071&quot;], &quot;number&quot;: 6, &quot;prerequisite&quot;: &quot;Build or dependency access required; Source-repository access required&quot;, &quot;risk&quot;: &quot;High&quot;, &quot;route&quot;: &quot;At compose.yml:31 the MariaDB root password and the dvwa application user password are written as literals in the service environment. Anyone who can read the repository learns them, and every deployment that uses compose.yml unchanged shares the same known credentials. An attacker who reaches the db service, for example from another container on the dvwa network or from a compromised app container, can log in as root and read or change all application data. The db service publishes no host ports and sits only on the internal dvwa network, and the web port is bound to 127.0.0.1 (line 25).&quot;, &quot;title&quot;: &quot;Compromise the Build or Its Inputs&quot;, &quot;unproven&quot;: false, &quot;victim&quot;: false, &quot;weakness&quot;: &quot;Secrets are committed to source instead of a managed store (W-004)&quot;, &quot;weakness_ids&quot;: [&quot;W-004&quot;]}], &quot;schema_version&quot;: 2}</metadata><rect width="1330" height="661" fill="#ffffff"/><defs><marker id="f2-attack" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b3453f"/></marker><marker id="f2-consequence" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/></marker></defs><text x="24" y="22" font-size="13" fill="#334d6e" font-weight="bold" >Threat Actors</text>
+<text x="248" y="22" font-size="13" fill="#334d6e" font-weight="bold" >Attack Route</text>
+<text x="622" y="22" font-size="13" fill="#334d6e" font-weight="bold" >Underlying Weakness</text>
+<text x="966" y="22" font-size="13" fill="#334d6e" font-weight="bold" >Impact (group)</text>
+<g data-route-number="1" data-finding-id="F-005" data-weakness-ids="W-001">
+<title>Anonymous Internet Attacker
+no account or prior foothold
+SQL and shell injection reads data, runs commands
+I send POST /vulnerabilities/api/v2/health/connectivity with JSON body {&quot;target&quot;:&quot;x; id&quot;}, without any token.
+C-03 · DVWA API service
+No account required
+Application data builds operating-system commands (W-001)
+Technical consequence not established.
+Service disruption or compromise of application data
+Disclosure of customer information</title>
+<rect x="248" y="42" width="320" height="73" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="65.0" font-size="13" fill="#1f2937" font-weight="bold" >SQL and shell injection reads data,</text>
+<text x="264" y="82.0" font-size="13" fill="#1f2937" font-weight="bold" >runs commands</text>
+<text x="264" y="99.0" font-size="13" fill="#6b7280" font-weight="normal" >F-005 · no account</text>
+<rect x="622" y="42" width="290" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="65.0" font-size="13" fill="#334d6e" font-weight="bold" >Application data builds</text>
+<text x="638" y="82.0" font-size="13" fill="#334d6e" font-weight="bold" >operating-system commands</text>
+<text x="638" y="99.0" font-size="13" fill="#6b7280" font-weight="normal" >(W-001)</text>
+<rect x="966" y="42" width="340" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="65.0" font-size="13" fill="#334d6e" font-weight="bold" >Service disruption or compromise of</text>
+<text x="982" y="82.0" font-size="13" fill="#334d6e" font-weight="bold" >application data</text>
+<text x="982" y="99.0" font-size="13" fill="#334d6e" font-weight="bold" >Disclosure of customer information</text>
+<path d="M194 78.5 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 78.5 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 78.5 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="78.5" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="82.5" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="1">1</text>
+</g>
+<g data-route-number="2" data-finding-id="F-006" data-weakness-ids="W-005">
+<title>Anonymous Internet Attacker
+no account or prior foothold
+Bypass or Forge Authentication
+Session tokens are JSON encrypted with AES-128-ECB under a hardcoded key and have no MAC. An attacker splices 16-byte blocks from captured tokens, for example Sweep&#x27;s user field with Sooty&#x27;s admin level and a valid expiry, and submits the forged token to be accepted as admin Sweep.
+C-03 · DVWA API service
+No account required
+Security-sensitive data uses weak cryptographic primitives (W-005)
+Technical consequence not established.
+Unauthorized administration and changes to protected business data</title>
+<rect x="248" y="127" width="320" height="73" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="158.5" font-size="13" fill="#1f2937" font-weight="bold" >Bypass or Forge Authentication</text>
+<text x="264" y="175.5" font-size="13" fill="#6b7280" font-weight="normal" >F-006 · no account</text>
+<rect x="622" y="127" width="290" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="150.0" font-size="13" fill="#334d6e" font-weight="bold" >Security-sensitive data uses</text>
+<text x="638" y="167.0" font-size="13" fill="#334d6e" font-weight="bold" >weak cryptographic primitives</text>
+<text x="638" y="184.0" font-size="13" fill="#6b7280" font-weight="normal" >(W-005)</text>
+<rect x="966" y="127" width="340" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="158.5" font-size="13" fill="#334d6e" font-weight="bold" >Unauthorized administration and</text>
+<text x="982" y="175.5" font-size="13" fill="#334d6e" font-weight="bold" >changes to protected business data</text>
+<path d="M194 163.5 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 163.5 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 163.5 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="163.5" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="167.5" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="2">2</text>
+</g>
+<g data-route-number="3" data-finding-id="F-073" data-weakness-ids="">
+<title>Anonymous Internet Attacker
+no account or prior foothold
+Bypass Authorization to Gain Access
+An authenticated user sets the user_id cookie to another user&#x27;s ID and requests that ID; the server compares the request ID with the cookie and returns the other user&#x27;s profile.
+C-03 · DVWA API service
+No account required
+No weakness linked in the register
+Technical consequence not established.
+Unauthorized administration and changes to protected business data</title>
+<rect x="248" y="212" width="320" height="56" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="235.0" font-size="13" fill="#1f2937" font-weight="bold" >Bypass Authorization to Gain Access</text>
+<text x="264" y="252.0" font-size="13" fill="#6b7280" font-weight="normal" >F-073 · no account</text>
+<rect x="622" y="212" width="290" height="56" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="235.0" font-size="13" fill="#6b7280" font-weight="normal" >No weakness linked in the</text>
+<text x="638" y="252.0" font-size="13" fill="#6b7280" font-weight="normal" >register</text>
+<rect x="966" y="212" width="340" height="56" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="235.0" font-size="13" fill="#334d6e" font-weight="bold" >Unauthorized administration and</text>
+<text x="982" y="252.0" font-size="13" fill="#334d6e" font-weight="bold" >changes to protected business data</text>
+<path d="M194 240.0 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 240.0 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 240.0 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="240.0" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="244.0" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="3">3</text>
+</g>
+<g data-route-number="5" data-finding-id="F-072" data-weakness-ids="W-006">
+<title>Anonymous Internet Attacker
+no account or prior foothold
+Execute Attacker-Controlled Server Code
+At vulnerabilities/view_help.php:20, view_help.php builds a path from the unsanitised id and locale parameters, reads vulnerabilities/{id}/help/help.php (or help.{locale}.php), and evals the contents as PHP. An authenticated user sets id to a traversal such as ../../some/dir. Any reachable help.php or locale-matching file that the attacker can place or select then runs as server-side code. The page requires a DVWA login (line 6), but there is no allowlist on id or locale and no path containment.
+C-03 · DVWA API service
+No account required
+Application data crosses into executable code (W-006)
+Technical consequence not established.
+Service disruption or compromise of application data
+Disclosure of customer information
+Unauthorized administration and changes to protected business data</title>
+<rect x="248" y="280" width="320" height="90" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="311.5" font-size="13" fill="#1f2937" font-weight="bold" >Execute Attacker-Controlled Server</text>
+<text x="264" y="328.5" font-size="13" fill="#1f2937" font-weight="bold" >Code</text>
+<text x="264" y="345.5" font-size="13" fill="#6b7280" font-weight="normal" >F-072 · no account · unproven</text>
+<rect x="622" y="280" width="290" height="90" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="311.5" font-size="13" fill="#334d6e" font-weight="bold" >Application data crosses into</text>
+<text x="638" y="328.5" font-size="13" fill="#334d6e" font-weight="bold" >executable code</text>
+<text x="638" y="345.5" font-size="13" fill="#6b7280" font-weight="normal" >(W-006)</text>
+<rect x="966" y="280" width="340" height="90" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="303.0" font-size="13" fill="#334d6e" font-weight="bold" >Service disruption or compromise of</text>
+<text x="982" y="320.0" font-size="13" fill="#334d6e" font-weight="bold" >application data</text>
+<text x="982" y="337.0" font-size="13" fill="#334d6e" font-weight="bold" >Disclosure of customer information</text>
+<text x="982" y="354.0" font-size="13" fill="#334d6e" font-weight="bold" >Unauthorized administration and …</text>
+<path d="M194 325.0 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 325.0 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 325.0 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="325.0" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="329.0" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="5">5</text>
+</g>
+<g data-route-number="2" data-finding-id="F-008" data-weakness-ids="W-004">
+<title>Authenticated Internet Attacker
+1 role; access details in Identified Actors
+Bypass or Forge Authentication
+I open /login.php and read the anti-CSRF token from the form.
+C-04 · DVWA web application
+Regular account required; Source-repository access required
+Secrets are committed to source instead of a managed store (W-004)
+Technical consequence not established.
+Unauthorized administration and changes to protected business data</title>
+<rect x="248" y="382" width="320" height="73" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="405.0" font-size="13" fill="#1f2937" font-weight="bold" >Bypass or Forge Authentication</text>
+<text x="264" y="422.0" font-size="13" fill="#6b7280" font-weight="normal" >F-008 · regular account ·</text>
+<text x="264" y="439.0" font-size="13" fill="#6b7280" font-weight="normal" >repository access</text>
+<rect x="622" y="382" width="290" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="405.0" font-size="13" fill="#334d6e" font-weight="bold" >Secrets are committed to source</text>
+<text x="638" y="422.0" font-size="13" fill="#334d6e" font-weight="bold" >instead of a managed store</text>
+<text x="638" y="439.0" font-size="13" fill="#6b7280" font-weight="normal" >(W-004)</text>
+<rect x="966" y="382" width="340" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="413.5" font-size="13" fill="#334d6e" font-weight="bold" >Unauthorized administration and</text>
+<text x="982" y="430.5" font-size="13" fill="#334d6e" font-weight="bold" >changes to protected business data</text>
+<path d="M194 418.5 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 418.5 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 418.5 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="418.5" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="422.5" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="2">2</text>
+</g>
+<g data-route-number="4" data-finding-id="F-029" data-weakness-ids="W-002">
+<title>Authenticated Internet Attacker
+1 role; access details in Identified Actors
+Access Exposed Data and Secrets
+At vulnerabilities/view_source.php:63 the unvalidated id and security GET values are joined into a file_get_contents path ending in .php, and the file is echoed with highlight_string. Any logged-in DVWA user passes dvwaPageStartup(array(&#x27;authenticated&#x27;)). The user then requests view_source.php?id=sqli or id=fi with security=../../../config/config.inc to escape the source directory. This discloses any .php file the web server can read, such as config.inc.php with its database credentials. The switch on id only sets a label, and its default branch accepts any value.
+C-03 · DVWA API service
+Regular account required
+Input handling lacks enforced boundary validation (W-002)
+Technical consequence not established.
+Disclosure of customer information</title>
+<rect x="248" y="467" width="320" height="73" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="498.5" font-size="13" fill="#1f2937" font-weight="bold" >Access Exposed Data and Secrets</text>
+<text x="264" y="515.5" font-size="13" fill="#6b7280" font-weight="normal" >F-029 · regular account</text>
+<rect x="622" y="467" width="290" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="490.0" font-size="13" fill="#334d6e" font-weight="bold" >Input handling lacks enforced</text>
+<text x="638" y="507.0" font-size="13" fill="#334d6e" font-weight="bold" >boundary validation</text>
+<text x="638" y="524.0" font-size="13" fill="#6b7280" font-weight="normal" >(W-002)</text>
+<rect x="966" y="467" width="340" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="507.0" font-size="13" fill="#334d6e" font-weight="bold" >Disclosure of customer information</text>
+<path d="M194 503.5 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 503.5 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 503.5 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="503.5" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="507.5" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="4">4</text>
+</g>
+<g data-route-number="6" data-finding-id="F-028" data-weakness-ids="W-004">
+<title>Supply-Chain / Build Attacker
+1 role; access details in Identified Actors
+Compromise the Build or Its Inputs
+At compose.yml:31 the MariaDB root password and the dvwa application user password are written as literals in the service environment. Anyone who can read the repository learns them, and every deployment that uses compose.yml unchanged shares the same known credentials. An attacker who reaches the db service, for example from another container on the dvwa network or from a compromised app container, can log in as root and read or change all application data. The db service publishes no host ports and sits only on the internal dvwa network, and the web port is bound to 127.0.0.1 (line 25).
+C-02 · CI/CD Pipeline
+Build or dependency access required; Source-repository access required
+Secrets are committed to source instead of a managed store (W-004)
+Technical consequence not established.
+Service disruption or compromise of application data</title>
+<rect x="248" y="552" width="320" height="73" rx="7" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" data-column="1"/>
+<text x="264" y="575.0" font-size="13" fill="#1f2937" font-weight="bold" >Compromise the Build or Its Inputs</text>
+<text x="264" y="592.0" font-size="13" fill="#6b7280" font-weight="normal" >F-028 · build access · repository</text>
+<text x="264" y="609.0" font-size="13" fill="#6b7280" font-weight="normal" >access</text>
+<rect x="622" y="552" width="290" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="2"/>
+<text x="638" y="575.0" font-size="13" fill="#334d6e" font-weight="bold" >Secrets are committed to source</text>
+<text x="638" y="592.0" font-size="13" fill="#334d6e" font-weight="bold" >instead of a managed store</text>
+<text x="638" y="609.0" font-size="13" fill="#6b7280" font-weight="normal" >(W-004)</text>
+<rect x="966" y="552" width="340" height="73" rx="7" fill="#f3f6fa" stroke="#4f6d9c" stroke-width="1.4" data-column="3"/>
+<text x="982" y="583.5" font-size="13" fill="#334d6e" font-weight="bold" >Service disruption or compromise of</text>
+<text x="982" y="600.5" font-size="13" fill="#334d6e" font-weight="bold" >application data</text>
+<path d="M194 588.5 H246" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M568 588.5 H620" fill="none" stroke="#b3453f" stroke-width="1.8" marker-end="url(#f2-attack)"/>
+<path d="M912 588.5 H964" fill="none" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f2-consequence)" stroke-dasharray="5 4"/>
+<circle cx="221.0" cy="588.5" r="10" fill="#b3453f" stroke="#ffffff" stroke-width="1.5"/>
+<text x="221.0" y="592.5" font-size="11" fill="#ffffff" font-weight="bold" text-anchor="middle" data-badge-number="6">6</text>
+</g>
+<g data-actor-card="internet-anon" data-actor-victim="false" data-actor-routes="1 2 3 5">
+<rect x="24" y="42" width="170" height="328" rx="7" fill="#fbf6f6" stroke="#a04d4a" stroke-width="1.4" data-column="0"/>
+<text x="40" y="192.5" font-size="13" fill="#b3453f" font-weight="bold" >Anonymous</text>
+<text x="40" y="209.5" font-size="13" fill="#b3453f" font-weight="bold" >Internet</text>
+<text x="40" y="226.5" font-size="13" fill="#b3453f" font-weight="bold" >Attacker</text>
+</g>
+<g data-actor-card="internet-user" data-actor-victim="false" data-actor-routes="2 4">
+<rect x="24" y="382" width="170" height="158" rx="7" fill="#fbf6f6" stroke="#a04d4a" stroke-width="1.4" data-column="0"/>
+<text x="40" y="447.5" font-size="13" fill="#b3453f" font-weight="bold" >Authenticated</text>
+<text x="40" y="464.5" font-size="13" fill="#b3453f" font-weight="bold" >Internet</text>
+<text x="40" y="481.5" font-size="13" fill="#b3453f" font-weight="bold" >Attacker</text>
+</g>
+<g data-actor-card="build-time" data-actor-victim="false" data-actor-routes="6">
+<rect x="24" y="552" width="170" height="73" rx="7" fill="#fbf6f6" stroke="#a04d4a" stroke-width="1.4" data-column="0"/>
+<text x="40" y="583.5" font-size="13" fill="#b3453f" font-weight="bold" >Supply-Chain /</text>
+<text x="40" y="600.5" font-size="13" fill="#b3453f" font-weight="bold" >Build Attacker</text>
+</g></svg>
