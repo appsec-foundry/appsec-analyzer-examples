@@ -22,3 +22,17 @@
 2026-10-27T16:30:13Z  [c9691997]  INFO   BASH_OK             cmd=git add README.md && git commit -q -m "Rewrite README: Juice Shop paragraph, per…  dur=1s
 2026-10-27T16:30:15Z  [c9691997]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
 2026-10-27T16:30:15Z  [c9691997]  INFO   SESSION_STOP        stop_reason=end_turn  in=12  out=3,023  cache_write=40,611  cache_read=289,718  cost=$0.2846
+2026-10-30T08:29:17Z  [3e06a67f]  INFO   BASH_OK             cmd=git ls-files && echo --- && git status --short && echo --- && grep -n -E '\]\(|\…  dur=2s
+2026-10-30T08:29:19Z  [3e06a67f]  INFO   FILE_READ           /home/mrohr/appsec-analyzer-examples/README.md  dur=0s
+2026-10-30T08:29:20Z  [3e06a67f]  INFO   BASH_OK             cmd=grep -n -E 'figure|security-assessment' security-assessment-dvwa-thorough-0.1.0.…  dur=0s
+2026-10-30T08:29:26Z  [3e06a67f]  INFO   BASH_OK             cmd=mkdir juice-shop dvwa && git mv security-assessment-juice-shop-* juice-shop/ && …  dur=1s
+2026-10-30T08:29:29Z  [3e06a67f]  INFO   BASH_OK             cmd=cd /home/mrohr/appsec-analyzer-examples/dvwa && grep -n -i -E 'cost|duration|ela…  dur=1s
+2026-10-30T08:29:36Z  [3e06a67f]  INFO   BASH_OK             cmd=cd /home/mrohr/appsec-analyzer-examples && python3 - <<'EOF' import re p='README…  dur=1s
+2026-10-30T08:29:41Z  [3e06a67f]  INFO   BASH_OK             cmd=git commit -q -m "Move examples into juice-shop/ and dvwa/ subfolders, add DVWA …  dur=0s
+2026-10-30T08:29:46Z  [3e06a67f]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-30T08:29:46Z  [3e06a67f]  INFO   SESSION_STOP        stop_reason=tool_use  in=12  out=2,146  cache_write=48,184  cache_read=367,447  cost=$0.3232
+2026-10-30T08:29:48Z  [3e06a67f]  INFO   SESSION_STOP        stop_reason=unknown  in=0  out=0  cost=n/a (no usage data in transcript or payload)
+2026-10-30T08:30:37Z  [3e06a67f]  INFO   BASH_OK             cmd=git show --stat HEAD -- README.md | tail -3; cat README.md  dur=1s
+2026-10-30T08:30:42Z  [3e06a67f]  WARN   AGENT_USAGE_UNATTRIBUTED  reason=no_agent_call_identity
+2026-10-30T08:30:42Z  [3e06a67f]  INFO   SESSION_STOP        stop_reason=end_turn  in=20  out=3,071  cache_write=50,247  cache_read=595,961  cost=$0.4133
+2026-10-30T08:30:44Z  [3e06a67f]  INFO   SESSION_STOP        stop_reason=unknown  in=0  out=0  cost=n/a (no usage data in transcript or payload)
